@@ -1,0 +1,25 @@
+.bottomBtns {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    padding: var(--gap-0) var(--gap-16);
+    bottom: var(--gap-16);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-16);
+}
+
+.selectCell {
+    padding: var(--gap-16);
+    border-radius: var(--border-radius-16);
+    background-color: var(--color-light-bg-secondary);
+}
+
+.selectCellError {
+    border: 1px solid var(--color-light-graphic-accent);
+}
+
+.attentionItem {
+    font-weight: 600;
+}

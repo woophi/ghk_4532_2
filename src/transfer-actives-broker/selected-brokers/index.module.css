@@ -1,0 +1,39 @@
+.stack {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-8);
+}
+
+.stackImgs {
+    display: flex;
+    align-items: center;
+}
+
+.firstImg {
+    border: 1px solid var(--color-light-bg-secondary);
+    position: relative;
+    z-index: 2;
+    margin-right: var(--gap-4-neg);
+    border-radius: var(--border-radius-8);
+    overflow: hidden;
+}
+
+.secondImg {
+    border: 1px solid var(--color-light-bg-secondary);
+    position: relative;
+    z-index: 1;
+    margin-right: var(--gap-4-neg);
+    border-radius: var(--border-radius-8);
+    overflow: hidden;
+}
+
+.numbersBox {
+    height: 24px;
+    max-width: 32px;
+    background-color: var(--color-light-neutral-500);
+    padding: var(--gap-4);
+    border-radius: var(--border-radius-8);
+    border: 1px solid var(--color-light-bg-secondary);
+    display: flex;
+    align-items: center;
+}
