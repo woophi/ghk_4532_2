@@ -21,6 +21,7 @@ import { SelectedOptionsRender } from './selected-brokers';
 
 import { LS, LSKeys } from '../ls';
 import { appSt } from '../style.css';
+import { sendDataToGA } from '../utils/events';
 import styles from './index.module.css';
 
 const stepsData = ['Выберите брокера', 'Отправьте заявку на перевод', 'Ожидайте зачисления активов в Альфа-Инвестиции'];
@@ -78,13 +79,11 @@ export const TransferActivesBrokerLayout = ({ goToLoadingScreen }: { goToLoading
 
     setError(false);
     setLoading(true);
-    goToLoadingScreen();
-
-    // trackInAnalytics('TRANSFER_ACTIVES_SEND_OFFER', {
-    //   experimentNumber: 'GHK-4532',
-    //   experimentVariant: `var${LS.getItem(USER_VARIANT_TA, '1')}`,
-    //   selectedBrokers: options.filter(option => selectedOptions.includes(option.key)).map(option => option.title),
-    // });
+    sendDataToGA({
+      broker: selectedOptions.map(selectedOptionKey => options.find(o => o.key === selectedOptionKey)?.title).join(', '),
+    }).then(() => {
+      goToLoadingScreen();
+    });
 
     LS.setItem(LSKeys.ShowThx, true);
   };
@@ -93,6 +92,7 @@ export const TransferActivesBrokerLayout = ({ goToLoadingScreen }: { goToLoading
     if (loading) {
       return;
     }
+    window.gtag('event', '4532_broker_var2');
     setOpenSelectBroker(true);
   };
   const closeSelectBrokerModal = () => {
