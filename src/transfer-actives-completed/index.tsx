@@ -7,7 +7,7 @@ export const TransferActivesCompleted = () => {
       title="Не получилось загрузить"
       subtitle="Сейчас перевод активов недоступен. Попробуйте зайти позже"
       onClick={() => {
-        window.location.replace('alfabank://investments');
+        window.location.replace('https://alfa.me/investments');
       }}
     />
   );
